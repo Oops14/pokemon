@@ -1,8 +1,14 @@
+import Header from '@/shared/header/Header.tsx'
+
+import s from './Home.module.scss'
+
 const Home = () => {
   return (
-    <div>
-      <h1>Home Page</h1>
-    </div>
+    <>
+      <Header />
+
+      <div className={s.container}></div>
+    </>
   )
 }
 

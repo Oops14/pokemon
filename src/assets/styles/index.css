@@ -1,0 +1,8 @@
+@import "reset.scss";
+
+body {
+    background: linear-gradient(to bottom, #0C163F 0%, #3457A6 50%, #E5ECF6 100%);
+    background-repeat: no-repeat;
+
+    height: 100vh;
+}
