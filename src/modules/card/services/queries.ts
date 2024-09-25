@@ -7,7 +7,7 @@ interface Pokemon {
   url: string
 }
 
-interface PokemonResponse {
+export interface PokemonResponse {
   count: number
   next: string | null
   previous: string | null

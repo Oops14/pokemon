@@ -20,10 +20,12 @@
     box-shadow 0.2s ease;
   will-change: transform, filter;
 
+  background-image: url('../../assets//images//bg_4.png');
   background-color: #2e5790;
   background-size: contain;
   background-repeat: no-repeat;
   background-position: top;
+
   transform-origin: center;
 
   border-radius: 5% / 3.5%;
