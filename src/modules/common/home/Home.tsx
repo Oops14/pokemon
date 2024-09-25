@@ -1,4 +1,7 @@
+import Card from '@/modules/card/Card.tsx'
+
 import Header from '@/shared/header/Header.tsx'
+import Container from '@/shared/container/Container.tsx'
 
 import s from './Home.module.scss'
 
@@ -7,7 +10,14 @@ const Home = () => {
     <>
       <Header />
 
-      <div className={s.container}></div>
+      <div className={s.home}>
+        <Container>
+          <div className={s.grid}>
+            <Card />
+            <Card />
+          </div>
+        </Container>
+      </div>
     </>
   )
 }

@@ -1,7 +1,11 @@
-.container {
-  width: 100%;
-  max-width: 1024px;
-  margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px;
+.home {
+  padding-top: 80px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 1fr;
+  grid-column-gap: 20px;
+  grid-row-gap: 20px;
 }
