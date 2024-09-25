@@ -1,17 +1,26 @@
-import { CSSProperties } from 'react'
+import { CSSProperties, FC } from 'react'
+
+import card_img from '@/assets/images/bg_4.png'
 
 import s from './Card.module.scss'
+import Typography from '@/ui/typography/Typography'
 
-const Card = () => {
-  const img = 'https://assets.codepen.io/13471/charizard-gx.webp'
+interface CardProps {
+  img: string
+  title: string
+}
 
+const Card: FC<CardProps> = ({ img, title }) => {
   const gridStyle: CSSProperties = {
-    backgroundImage: `url(${img})`, // Use a template literal for the correct CSS syntax
+    backgroundImage: `url(${card_img})`,
   }
 
   return (
     <div style={gridStyle} className={`${s.card} ${s.animated} `}>
-      <div>Card content</div>
+      <div className={s.card_image_inner}>
+        <img src={img} alt="#" />
+      </div>
+      <Typography className={s.card_title}>{title}</Typography>
     </div>
   )
 }

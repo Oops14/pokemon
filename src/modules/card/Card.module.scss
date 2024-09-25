@@ -2,18 +2,11 @@
   --color1: rgb(0, 231, 255);
   --color2: rgb(255, 0, 231);
   --back: url(https://cdn2.bulbagarden.net/upload/1/17/Cardback.jpg);
-  --charizard1: #fac;
-  --charizard2: #ddccaa;
   --charizardfront: url(https://assets.codepen.io/13471/charizard-gx.webp);
 }
 
 .card {
-  width: 71.5vw;
-  height: 100vw;
-  @media screen and (min-width: 600px) {
-    width: clamp(12.9vw, 61vh, 18vw);
-    height: clamp(18vw, 85vh, 25.2vw);
-  }
+  height: 273px;
 
   position: relative;
   overflow: hidden;
@@ -22,88 +15,109 @@
   z-index: 10;
   touch-action: none;
 
-  border-radius: 5% / 3.5%;
-  box-shadow: -5px -5px 5px -5px var(--color1),
-  5px 5px 5px -5px var(--color2),
-  -7px -7px 10px -5px transparent,
-  7px 7px 10px -5px transparent,
-  0 0 5px 0px rgba(255, 255, 255, 0),
-  0 55px 35px -20px rgba(0, 0, 0, 0.5);
-
-  transition: transform 0.5s ease, box-shadow 0.2s ease;
+  transition:
+    transform 0.5s ease,
+    box-shadow 0.2s ease;
   will-change: transform, filter;
 
-  background-color: #040712;
-  background-size: cover;
+  background-color: #2e5790;
+  background-size: contain;
   background-repeat: no-repeat;
-  background-position: 50% 50%;
+  background-position: top;
   transform-origin: center;
 
+  border-radius: 5% / 3.5%;
+  box-shadow:
+    -5px -5px 5px -5px var(--color1),
+    5px 5px 5px -5px var(--color2),
+    -7px -7px 10px -5px transparent,
+    7px 7px 10px -5px transparent,
+    0 0 5px 0px rgba(255, 255, 255, 0),
+    0 55px 35px -20px rgba(0, 0, 0, 0.5);
+
+  cursor: pointer;
 }
 
 .card:hover {
-  box-shadow: -20px -20px 30px -25px var(--color1),
-  20px 20px 30px -25px var(--color2),
-  -7px -7px 10px -5px var(--color1),
-  7px 7px 10px -5px var(--color2),
-  0 0 13px 4px rgba(255, 255, 255, 0.3),
-  0 55px 35px -20px rgba(0, 0, 0, 0.5);
+  box-shadow:
+    -20px -20px 30px -25px var(--color1),
+    20px 20px 30px -25px var(--color2),
+    -7px -7px 10px -5px var(--color1),
+    7px 7px 10px -5px var(--color2),
+    0 0 13px 4px rgba(255, 255, 255, 0.3),
+    0 55px 35px -20px rgba(0, 0, 0, 0.5);
 }
 
-.card {
-  --color1: var(--charizard1);
-  --color2: var(--charizard2);
+.card_image_inner {
+  text-align: center;
+  padding-top: 32px;
+  margin-bottom: 50px;
+
+  img {
+    width: 130px;
+  }
+}
+
+.card_title {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  bottom: 20px;
+
+  text-transform: capitalize;
+  color: #3313e8;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .card:before,
 .card:after {
-  content: "";
+  content: '';
   position: absolute;
   left: 0;
   right: 0;
   bottom: 0;
   top: 0;
   background-repeat: no-repeat;
-  opacity: .5;
+  opacity: 0.5;
   mix-blend-mode: color-dodge;
-  transition: all .33s ease;
+  transition: all 0.33s ease;
 }
 
 .card:before {
   background-position: 50% 50%;
   background-size: 300% 300%;
   background-image: linear-gradient(
-                  115deg,
-                  transparent 0%,
-                  var(--color1) 25%,
-                  transparent 47%,
-                  transparent 53%,
-                  var(--color2) 75%,
-                  transparent 100%
+    115deg,
+    transparent 0%,
+    var(--color1) 25%,
+    transparent 47%,
+    transparent 53%,
+    var(--color2) 75%,
+    transparent 100%
   );
-  opacity: .5;
-  filter: brightness(.5) contrast(1);
+  opacity: 0.5;
+  filter: brightness(0.5) contrast(1);
   z-index: 1;
 }
 
 .card:after {
   opacity: 1;
-  background-image: url("https://assets.codepen.io/13471/sparkles.gif"),
-  url(https://assets.codepen.io/13471/holo.png),
-  linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
+  background-image: url('https://assets.codepen.io/13471/sparkles.gif'), url(https://assets.codepen.io/13471/holo.png),
+    linear-gradient(125deg, #ff008450 15%, #fca40040 30%, #ffff0030 40%, #00ff8a20 60%, #00cfff40 70%, #cc4cfa50 85%);
   background-position: 50% 50%;
   background-size: 160%;
   background-blend-mode: overlay;
   z-index: 2;
   filter: brightness(1) contrast(1);
-  transition: all .33s ease;
+  transition: all 0.33s ease;
   mix-blend-mode: color-dodge;
-  opacity: .75;
+  opacity: 0.75;
 }
 
 .card.active:after,
 .card:hover:after {
-  filter: brightness(1) contrast(1);;
+  filter: brightness(1) contrast(1);
   opacity: 1;
 }
 
@@ -116,17 +130,11 @@
 .card.active:before,
 .card:hover:before {
   animation: none;
-  background-image: linear-gradient(
-                  110deg,
-                  transparent 25%,
-                  var(--color1) 48%,
-                  var(--color2) 52%,
-                  transparent 75%
-  );
+  background-image: linear-gradient(110deg, transparent 25%, var(--color1) 48%, var(--color2) 52%, transparent 75%);
   background-position: 50% 50%;
   background-size: 250% 250%;
-  opacity: .88;
-  filter: brightness(.66) contrast(1.33);
+  opacity: 0.88;
+  filter: brightness(0.66) contrast(1.33);
   transition: none;
 }
 
@@ -153,73 +161,84 @@
   }
 }
 
-
 @keyframes holoSparkle {
-  0%, 100% {
-    opacity: .75;
+  0%,
+  100% {
+    opacity: 0.75;
     background-position: 50% 50%;
     filter: brightness(1.2) contrast(1.25);
   }
-  5%, 8% {
+  5%,
+  8% {
     opacity: 1;
     background-position: 40% 40%;
-    filter: brightness(.8) contrast(1.2);
+    filter: brightness(0.8) contrast(1.2);
   }
-  13%, 16% {
-    opacity: .5;
+  13%,
+  16% {
+    opacity: 0.5;
     background-position: 50% 50%;
-    filter: brightness(1.2) contrast(.8);
+    filter: brightness(1.2) contrast(0.8);
   }
-  35%, 38% {
+  35%,
+  38% {
     opacity: 1;
     background-position: 60% 60%;
     filter: brightness(1) contrast(1);
   }
   55% {
-    opacity: .33;
+    opacity: 0.33;
     background-position: 45% 45%;
     filter: brightness(1.2) contrast(1.25);
   }
 }
 
 @keyframes holoGradient {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 0.5;
     background-position: 50% 50%;
-    filter: brightness(.5) contrast(1);
+    filter: brightness(0.5) contrast(1);
   }
-  5%, 9% {
+  5%,
+  9% {
     background-position: 100% 100%;
     opacity: 1;
-    filter: brightness(.75) contrast(1.25);
+    filter: brightness(0.75) contrast(1.25);
   }
-  13%, 17% {
+  13%,
+  17% {
     background-position: 0% 0%;
-    opacity: .88;
+    opacity: 0.88;
   }
-  35%, 39% {
+  35%,
+  39% {
     background-position: 100% 100%;
     opacity: 1;
-    filter: brightness(.5) contrast(1);
+    filter: brightness(0.5) contrast(1);
   }
   55% {
     background-position: 0% 0%;
     opacity: 1;
-    filter: brightness(.75) contrast(1.25);
+    filter: brightness(0.75) contrast(1.25);
   }
 }
 
 @keyframes holoCard {
-  0%, 100% {
+  0%,
+  100% {
     transform: rotateZ(0deg) rotateX(0deg) rotateY(0deg);
   }
-  5%, 8% {
+  5%,
+  8% {
     transform: rotateZ(0deg) rotateX(6deg) rotateY(-20deg);
   }
-  13%, 16% {
+  13%,
+  16% {
     transform: rotateZ(0deg) rotateX(-9deg) rotateY(32deg);
   }
-  35%, 38% {
+  35%,
+  38% {
     transform: rotateZ(3deg) rotateX(12deg) rotateY(20deg);
   }
   55% {
@@ -227,59 +246,23 @@
   }
 }
 
-.operator {
-  display: inline-block;
-  vertical-align: middle;
-  font-size: 6vh;
-}
-
 .card {
-  &:nth-child(2) {
-    &, &:before, &:after {
+  &:nth-child(odd) {
+    &,
+    &:before,
+    &:after {
       animation-delay: 0.25s;
     }
   }
 
-  &:nth-child(3) {
-    &, &:before, &:after {
+  &:nth-child(even) {
+    &,
+    &:before,
+    &:after {
       animation-delay: 0.5s;
     }
   }
-
-  &:nth-child(4) {
-    &, &:before, &:after {
-      animation-delay: 0.75s;
-    }
-  }
 }
-
-
-p {
-  font-weight: 400;
-  font-size: 18px;
-  padding: 1em;
-  background: rgba(0, 0, 0, 0.3);
-  margin-top: 0;
-  animation: rubberBand 1.5s linear 3s 1;
-}
-
-.promo {
-  margin-top: 50px;
-}
-
-.promo img {
-  margin-top: 10px;
-  max-width: 80%;
-}
-
-p a {
-  color: cyan;
-}
-
-html, body, main {
-  min-height: 100%;
-}
-
 
 @keyframes rubberBand {
   from {
@@ -308,5 +291,18 @@ html, body, main {
 
   to {
     transform: scale3d(1, 1, 1);
+  }
+}
+
+@media (max-width: 999px) {
+  .card {
+    width: 190px;
+  }
+}
+
+@media (max-width: 680px) {
+  .card {
+    width: 150px;
+    height: 219px;
   }
 }
