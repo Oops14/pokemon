@@ -2,7 +2,7 @@ import Card from '../Card'
 
 import { useCards } from '../services/queries'
 
-const CardItems = ({}) => {
+const CardItems = () => {
   const { data, isLoading, error } = useCards()
 
   if (isLoading) {
@@ -23,7 +23,7 @@ const CardItems = ({}) => {
         const pokemonIndex = i.url.split('/')[i.url.split('/').length - 2]
         const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${pokemonIndex}.png`
 
-        return <Card key={i.url} img={imageUrl} title={i.name} />
+        return <Card key={i.url} img={imageUrl} title={i.name} id={parseInt(pokemonIndex)} />
       })}
     </>
   )

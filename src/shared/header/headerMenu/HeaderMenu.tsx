@@ -9,7 +9,7 @@ const HeaderMenu = () => {
         <Link to={'/'}>Home</Link>
       </li>
       <li className={s.site_menu_item}>
-        <Link to={'/'}>All Pokemon's</Link>
+        <Link to={'/archive'}>All Pokemon's</Link>
       </li>
     </ul>
   )

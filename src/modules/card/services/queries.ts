@@ -1,22 +1,20 @@
 import { useQuery } from '@tanstack/react-query'
 
-import { getCards } from './api'
+import { specificCard } from '@/modules/card/types/SpecificCardInfoType.ts'
+import { CardsResponse } from '@/modules/card/types/CardsType.ts'
 
-interface Pokemon {
-  name: string
-  url: string
-}
-
-export interface PokemonResponse {
-  count: number
-  next: string | null
-  previous: string | null
-  results: Pokemon[]
-}
+import { getCards, getSpecificCardInfo } from './api'
 
 export const useCards = () => {
-  return useQuery<PokemonResponse>({
+  return useQuery<CardsResponse>({
     queryKey: ['cards'],
     queryFn: getCards,
+  })
+}
+
+export const useSpecificCardInfo = (id: number) => {
+  return useQuery<specificCard>({
+    queryKey: ['card_info', id],
+    queryFn: () => getSpecificCardInfo(id),
   })
 }
