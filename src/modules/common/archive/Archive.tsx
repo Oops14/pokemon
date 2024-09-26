@@ -1,16 +1,16 @@
-import CardItems from '@/modules/card/components/CardItems'
+import CardItems from '@/modules/card/components/CardItems.tsx'
 
 import Header from '@/shared/header/Header.tsx'
 import Container from '@/shared/container/Container.tsx'
 
-import s from './Home.module.scss'
+import s from './Archive.module.scss'
 
-const Home = () => {
+const Archive = () => {
   return (
     <>
       <Header />
 
-      <div className={s.home}>
+      <div className={s.main_archive}>
         <Container>
           <div className={s.grid}>
             <CardItems />
@@ -21,4 +21,4 @@ const Home = () => {
   )
 }
 
-export default Home
+export default Archive
